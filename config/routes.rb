@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get "/about" => "home#about"
 
   get "/users/create" => "users#new"
-  get "/users/login" => "users#login"
+  get "/users/signin" => "users#login"
   get "/users/user_home" => "users#home"
   
 end
