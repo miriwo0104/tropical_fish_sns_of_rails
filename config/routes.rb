@@ -5,9 +5,11 @@ Rails.application.routes.draw do
   get "/" => "home#top"
   get "/about" => "home#about"
 
-  get "/users/create" => "users#new"
-  get "/users/signin" => "users#login"
+  get "/signup" => "users#new"
+  get "/signin" => "users#login"
   get "/users/user_home" => "users#home"
+  get "/users/:id" => "users#show"
+  post "/users/create" => "users#create"
   
   get "/posts/index" => "posts#index"
   get "/posts/show" => "posts#show"
