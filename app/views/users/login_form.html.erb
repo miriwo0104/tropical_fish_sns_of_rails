@@ -1,0 +1,9 @@
+<h1>ログインページ</h1>
+<%= form_tag("/users/login") do %>
+  <%= @error_message %>
+  <p>メールアドレス</p>
+  <input type="email" name="email" value="<%= @email %>">
+  <p>パスワード</p>
+  <input type="password" name="password">
+  <input type="submit" value="ログイン">
+<% end %>

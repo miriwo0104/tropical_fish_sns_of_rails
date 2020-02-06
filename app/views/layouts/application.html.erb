@@ -21,11 +21,17 @@
       	  	<span class="navbar-toggler-icon"></span>
       	  </button>
       	  <div class="collapse navbar-collapse" id="navbarResponsive">
-      	    <ul class="navbar-nav ml-auto">
-		      	<li class="navbar-item"><%= link_to("Home", "/", {class: "nav-link"}) %></li>
-		      	<li class="navbar-item"><%= link_to("このサービスについて", "/about", {class: "nav-link"}) %></li>
-		      	<li class="navbar-item"><%= link_to("新規登録", "/signup", {class: "nav-link"}) %></li>
-		      	<li class="navbar-item"><%= link_to("ログイン", "/login", {class: "nav-link"}) %></li>
+        	  <ul class="navbar-nav ml-auto">
+              <% if session[:user_id] %>
+		          	<li class="navbar-item"><%= link_to("ログアウト", "/logout", {class: "nav-link"}) %></li>
+		          	<li class="navbar-item"><%= link_to("タイムライン", "/posts/index", {class: "nav-link"}) %></li>
+                <li class="navbar-item"><%= link_to("#{@current_user.name}", "/users/#{@current_user.id}", {class: "nav-link"}) %></li>
+              <% else %>
+		          	<li class="navbar-item"><%= link_to("Home", "/", {class: "nav-link"}) %></li>
+		          	<li class="navbar-item"><%= link_to("このサービスについて", "/about", {class: "nav-link"}) %></li>
+		          	<li class="navbar-item"><%= link_to("新規登録", "/signup", {class: "nav-link"}) %></li>
+		          	<li class="navbar-item"><%= link_to("ログイン", "/signin", {class: "nav-link"}) %></li>
+              <% end %>
       	    </ul>
       	  </div>
       	</div>
