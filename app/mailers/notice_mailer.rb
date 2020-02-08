@@ -5,9 +5,8 @@ class NoticeMailer < ApplicationMailer
   #
   #   en.notice_mailer.initial_registration.subject
   #
-  def initial_registration
+  def initial_registration(user)
     @greeting = "Hi"
-
-    mail to: "shunokawa@gmail.com"
+    mail to: user.email
   end
 end
