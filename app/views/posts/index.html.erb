@@ -1,1 +1,9 @@
 <h1>投稿一覧画面</h1>
+<div class="post-item">
+  <% @posts.each do |post| %>
+  <div class="posts-index-item">
+    <%= post.content %><br>
+    <%= post.link %><br>
+    <% end %>
+  </div>
+</div>
