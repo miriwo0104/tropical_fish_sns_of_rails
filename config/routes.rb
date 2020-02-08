@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get "/users/user_home" => "users#home"
   post "/users/create" => "users#create"
   post "/users/login" => "users#login"
+  get "/users/send_mail" => "users#send_mail"
   get "/users/:id" => "users#show"
   
   get "/posts/index" => "posts#index"

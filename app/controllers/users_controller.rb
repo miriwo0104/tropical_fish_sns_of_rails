@@ -12,7 +12,8 @@ class UsersController < ApplicationController
     if @user.save
       # flash[:notice] = "登録完了"
       session[:user_id] = @user.id
-      redirect_to("/users/#{@user.id}")
+      #redirect_to("/users/#{@user.id}")
+      redirect_to("/users/send_mail")
     else
       # flash[:notice] = "登録失敗"
       render ("users/new")
