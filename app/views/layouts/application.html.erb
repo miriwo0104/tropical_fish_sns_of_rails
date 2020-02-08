@@ -24,7 +24,7 @@
         	  <ul class="navbar-nav ml-auto">
               <% if session[:user_id] %>
 		          	<li class="navbar-item"><%= link_to("タイムライン", "/posts/index", {class: "nav-link"}) %></li>
-		          	<li class="navbar-item"><%= link_to("投稿", "/posts/tweet", {class: "nav-link"}) %></li>
+		          	<li class="navbar-item"><%= link_to("投稿", "/posts/new", {class: "nav-link"}) %></li>
 		          	<li class="navbar-item"><%= link_to("ログアウト", "/logout", {class: "nav-link"}) %></li>
                 <li class="navbar-item"><%= link_to("#{@current_user.name}", "/users/#{@current_user.id}", {class: "nav-link"}) %></li>
               <% else %>
