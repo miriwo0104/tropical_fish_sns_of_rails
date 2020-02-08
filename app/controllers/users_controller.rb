@@ -25,6 +25,7 @@ class UsersController < ApplicationController
     if @user
       session[:user_id] = @user.id
       redirect_to("/users/#{@user.id}")
+      NoticeMailer.initial_registration.deliver_now
     else
       @error_message = "メールアドレスかパスワードが間違っています。"
       @email = params[:email]

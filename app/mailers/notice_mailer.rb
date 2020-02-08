@@ -8,6 +8,6 @@ class NoticeMailer < ApplicationMailer
   def initial_registration
     @greeting = "Hi"
 
-    mail to: "to@example.org"
+    mail to: "shunokawa@gmail.com"
   end
 end
