@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   post "/users/create" => "users#create"
   post "/users/login" => "users#login"
   get "/users/send_mail" => "users#send_mail"
+  post "/users/input_address" => "users#input_address"
   get "/users/:id" => "users#show"
   
   get "/posts/index" => "posts#index"
