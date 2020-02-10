@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get "/" => "home#top"
   get "/about" => "home#about"
-
+  
+  #登録の第一歩
   get "/signup" => "users#new"
   get "/signin" => "users#login_form"
   get "/logout" => "users#logout"
@@ -12,6 +13,10 @@ Rails.application.routes.draw do
   post "/users/create" => "users#create"
   post "/users/login" => "users#login"
   get "/users/send_mail" => "users#send_mail"
+  #メールに記載しているlink
+  get "/users/input_id" => "users#input_id"
+  #初回登録情報を登録するcontrollerにpostする
+  post "/users/input_id" => "users#create"
   post "/users/input_address" => "users#input_address"
   get "/users/:id" => "users#show"
   

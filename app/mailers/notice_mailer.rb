@@ -7,8 +7,8 @@ class NoticeMailer < ApplicationMailer
   #
   def initial_registration(user)
     @greeting = "Hi"
-    @link = "http://localhost:3000/"
-    #@secure_id = user.secure_id
-    mail to: user.email
+    @link = "http://localhost:3000/users/input_id"
+    @random_id = user.random_id
+    mail to: user.address
   end
 end

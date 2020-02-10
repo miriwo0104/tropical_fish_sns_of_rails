@@ -7,6 +7,6 @@ class User < ApplicationRecord
     }
     
     #nameが空の時はじく
-    validates :name,    {presence: true,
+    validates :name,    {presence: true
     }
 end

@@ -1,0 +1,9 @@
+<%= form_tag("/users/input_id") do %>
+  <p>ID</p>
+  <input type="text" name="random_id">
+  <p>ユーザー名</p>
+  <input type="text" name="name" value="<%= @user.name %>">
+  <p>パスワード</p>
+  <input type="password" name="password">
+  <input type="submit" value="送信">
+<% end %>
