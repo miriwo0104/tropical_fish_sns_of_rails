@@ -13,20 +13,20 @@ class UsersController < ApplicationController
     random_id = SecureRandom.hex(16)
     #addressesテーブルに新規レコード追加して入力アドレスと16桁のランダムな文字列を格納する準備
     @user_address = Address.new(address: params[:email], random_id: random_id)
-    
+
     #メール送信メーラーへの命令、メールには登録フォームのリンクと16桁のランダムな文字列を添付する予定、←まだ未実施
     if @user_address.save
-      # flash[:notice] = "登録完了"
+      flash[:notice] = "登録完了"
       redirect_to("/users/send_mail")
       NoticeMailer.initial_registration(@user_address).deliver_now
     else
-      # flash[:notice] = "登録失敗"
+      flash[:notice] = "登録失敗"
       #登録失敗時にパスワード以外の入力値をそのままに新規登録画面を再表示
       render ("users/new")
     end
     #受信ボックスを見ろと表示するページに飛ばす
   end
-
+  
   def input_id
     @user = User.new
   end
@@ -36,7 +36,7 @@ class UsersController < ApplicationController
     @user_address = Address.find_by(random_id: params[:random_id])
     #入力値を元にusersテーブルに新規レコードを作成
     @user = User.new(name: params[:name], email: @user_address.address, password_digest: params[:password])
-
+    
     if @user.save
       # flash[:notice] = "メールアドレス登録完了"
       session[:user_id] = @user.id
@@ -59,21 +59,53 @@ class UsersController < ApplicationController
       render("users/login_form")
     end
   end
-
+  
   def login_form
-
+    
   end
-
+  
   def logout
     session.delete(:user_id)
     redirect_to("/signin")
   end
-
+  
   def home
     
   end
-
+  
   def show
     @user = User.find_by(id: params[:id])
+  end
+  
+  def password_recovery
+    
+  end
+  
+  def password_recovery_send_mail
+    user_address = Address.find_by(address: params[:email])
+    #@user = User.find_by(email: params[:email])
+    NoticeMailer.password_reset(user_address).deliver_now
+    redirect_to("/users/send_mail")
+  end
+  
+  def password_reset
+    
+  end
+  
+  def password_reset_input
+    
+  end
+  
+  def password_reset_main
+    
+  end
+  
+  def password_reset_main_input
+    @user_address = Address.find_by(random_id: params[:random_id])
+    user_address = @user_address.address
+    @user = User.find_by(email: user_address)
+    @user.password_digest = params[:password]
+    @user.save
+    redirect_to("/signin")
   end
 end

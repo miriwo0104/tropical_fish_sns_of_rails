@@ -11,4 +11,10 @@ class NoticeMailer < ApplicationMailer
     @random_id = user.random_id
     mail to: user.address
   end
+  
+  def password_reset(user)
+    @random_id = user.random_id
+    @link = "http://localhost:3000/users/password_reset_main"
+    mail to: user.address
+  end
 end

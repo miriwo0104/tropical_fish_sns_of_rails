@@ -18,6 +18,12 @@ Rails.application.routes.draw do
   #初回登録情報を登録するcontrollerにpostする
   post "/users/input_id" => "users#create"
   post "/users/input_address" => "users#input_address"
+  get "/users/password_recovery" => "users#password_recovery"
+  post "/users/password_recovery" => "users#password_recovery_send_mail"
+  get "/users/password_reset" => "users#password_reset"
+  post "/users/password_reset" => "users#password_reset_input"
+  get "/users/password_reset_main" => "users#password_reset_main"
+  post "/users/password_reset_main" => "users#password_reset_main_input"
   get "/users/:id" => "users#show"
   
   get "/posts/index" => "posts#index"
