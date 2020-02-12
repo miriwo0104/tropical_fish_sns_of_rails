@@ -1,6 +1,8 @@
 cd class PostsController < ApplicationController
 def index
   @posts = Post.all
+  #ユーザ新規登録時、ログイン時に格納したsessionの値から現在ログイン中のユーザを特定する
+  @user = User.find(session[:user_id])
 end
 
 def show
@@ -13,8 +15,10 @@ end
 
 def create
   #入力されたツイート本文と飼育環境リンクを新規ツイートとして作成
+  @user = User.find(session[:user_id])
   @post = Post.new(content: params[:content],
                   link: params[:link],
+                  user_id: @current_user.id
   )
 
   if params[:image]

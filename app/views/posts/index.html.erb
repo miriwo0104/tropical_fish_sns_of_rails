@@ -8,7 +8,10 @@
       <img src="<%= "/tweet_images/#{post.img}" %>" >
     <% end %>
     <br>
-    <%= link_to("詳細", "/posts/#{post.id}") %>
+    <!-- 投稿のユーザIDと現在ログイン中のユーザIDが一致していれば詳細ボタンを表示する ,to_sで値のデータを文字列として扱う -->
+    <% if post.user_id.to_s == @user.id.to_s %>
+      <%= link_to("詳細", "/posts/#{post.id}") %>
     <% end %>
+  <% end %>
   </div>
 </div>

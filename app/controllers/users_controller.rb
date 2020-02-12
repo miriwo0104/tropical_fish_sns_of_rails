@@ -66,6 +66,7 @@ class UsersController < ApplicationController
   
   def logout
     session.delete(:user_id)
+    session[:user_id] = nil
     redirect_to("/signin")
   end
   
