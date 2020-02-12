@@ -1,0 +1,11 @@
+<h1>投稿内容の編集ページ</h1>
+<%= form_tag("/posts/#{@post.id}/edit", {multipart: true}) do %>
+  <p>投稿内容</p>
+  <textarea name="content" cols="30" rows="10"><%= @post.content %></textarea>
+  <p>飼育環境リンク</p>
+  <input type="link"><br>
+  <p>画像</p>
+  <input type="file" name="image">
+  <br>
+  <input type="submit" value="送信">
+<% end %>

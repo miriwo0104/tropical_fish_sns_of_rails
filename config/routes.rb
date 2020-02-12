@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   get "/posts/index" => "posts#index"
   get "/posts/new" => "posts#new"
   get "/posts/:id/edit" => "posts#edit"
+  post "/posts/:id/edit" => "posts#update"
   post "/posts/new" => "posts#create"
   get "/posts/:id" => "posts#show"
 end
