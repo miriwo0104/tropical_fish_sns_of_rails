@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2020_02_12_022321) do
+=======
+ActiveRecord::Schema.define(version: 2020_02_12_043357) do
+>>>>>>> test
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "random_id"
@@ -34,6 +38,7 @@ ActiveRecord::Schema.define(version: 2020_02_12_022321) do
     t.text "email"
     t.string "password_digest"
     t.string "secure_id"
+    t.string "image_name"
   end
 
 end

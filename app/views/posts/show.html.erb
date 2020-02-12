@@ -1,6 +1,7 @@
 <h1>投稿詳細画面</h1>
- <% @users.each do |user| %>
-      <tr>
-        <td><%= image_tag user.image.to_s %></td>
-      </tr>
- <% end %>
+<img src="<%= "/tweet_images/#{@post.img}" %>" >
+<br>
+<%= @post.content %><br>
+<br>
+<%= @post.link %><br>
+<%= link_to("編集", "/posts/#{@post.id}/edit") %>
