@@ -60,4 +60,4 @@ gem 'bootstrap'
 
 gem 'bcrypt'
 
-gem 'carrierwave'
+gem 'carrierwave', '~> 1.3', '>= 1.3.1'
