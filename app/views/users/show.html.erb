@@ -1,4 +1,8 @@
 <h1>ユーザ詳細ページ</h1>
+<img src="<%= "/user_images/#{@user.image_name}" %>" >
+<br>
 <%= @user.name %>
 <br>
 <%= @user.email %>
+<br>
+<%= link_to("編集", "/users/#{@user.id}/edit") %>

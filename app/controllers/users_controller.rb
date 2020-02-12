@@ -35,7 +35,7 @@ class UsersController < ApplicationController
     #addressesテーブルからメール添付のIDを元に当該レコードを取得
     @user_address = Address.find_by(random_id: params[:random_id])
     #入力値を元にusersテーブルに新規レコードを作成
-    @user = User.new(name: params[:name], email: @user_address.address, password_digest: params[:password])
+    @user = User.new(name: params[:name], email: @user_address.address, password_digest: params[:password], image_name: "default_user.jpg")
     
     if @user.save
       # flash[:notice] = "メールアドレス登録完了"
@@ -106,5 +106,28 @@ class UsersController < ApplicationController
     @user.password_digest = params[:password]
     @user.save
     redirect_to("/signin")
+  end
+
+  def edit
+    @user = User.find_by(id: params[:id])
+  end
+
+  def update
+    @user = User.find_by(id: params[:id])
+    @user.name = params[:name]
+    
+    if params[:image]
+      @user.image_name = "#{@user.id}.jpg"
+      image = params[:image]
+      File.binwrite("public/user_images/#{@user.image_name}", image.read)
+    end
+
+    if @user.save
+      # flash[:notice] = "更新完了"
+      redirect_to("/users/#{@user.id}")
+    else
+      # flash[:notice] = "更新失敗"
+      render("users/edit")
+    end
   end
 end

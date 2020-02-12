@@ -24,6 +24,8 @@ Rails.application.routes.draw do
   post "/users/password_reset" => "users#password_reset_input"
   get "/users/password_reset_main" => "users#password_reset_main"
   post "/users/password_reset_main" => "users#password_reset_main_input"
+  get "/users/:id/edit" => "users#edit"
+  post "users/:id/edit" => "users#update"
   get "/users/:id" => "users#show"
   
   get "/posts/index" => "posts#index"
