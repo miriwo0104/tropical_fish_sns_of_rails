@@ -102,8 +102,7 @@ class UsersController < ApplicationController
   
   def password_reset_main_input
     @user_address = Address.find_by(random_id: params[:random_id])
-    user_address = @user_address.address
-    @user = User.find_by(email: user_address)
+    @user = User.find_by(email: @user_address.address)
     @user.password_digest = params[:password]
     @user.save
     redirect_to("/signin")
