@@ -59,3 +59,5 @@ gem 'jquery-rails'
 gem 'bootstrap'
 
 gem 'bcrypt'
+
+gem 'carrierwave'
