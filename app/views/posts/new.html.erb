@@ -1,8 +1,11 @@
 <h1>投稿ページ</h1>
-<%= form_tag("/posts/new") do %>
+<%= form_for("/posts/new", {multipart: true}) do %>
   <h3>投稿内容</h3>
   <textarea name="content" cols="30" rows="10"></textarea>
   <h3>飼育環境リンク</h3>
   <input type="link"><br>
+  <p>画像</p>
+  <input name="image" type="file">
+  <br>
   <input type="submit" value="投稿">
 <% end %>
