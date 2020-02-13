@@ -2,8 +2,6 @@
 <div class="post-item">
   <% @posts.each do |post| %>
   <div class="posts-index-item">
-    <%= post.content %><br>
-    <%= post.link %><br>
     <% if post.img %>
       <img src="<%= "/tweet_images/#{post.img}" %>" >
     <% end %>
@@ -12,6 +10,10 @@
     <% if post.user_id.to_s == @user.id.to_s %>
       <%= link_to("詳細", "/posts/#{post.id}") %>
     <% end %>
+    <br>
+    <%= post.content %><br>
+    <%= post.link %><br>
+    <%= post.updated_at.to_s.slice(0..10) %>
   <% end %>
   </div>
 </div>
