@@ -1,0 +1,20 @@
+<h1>環境登録ページ</h1>
+<%= form_tag("/rearing_data/new") do %>
+  <h3>水槽の名前</h3>
+  <input type="text" name="fish_tank_name">
+  <h3>水槽の大きさ</h3>
+  <input type="text" name="fish_tank_size">
+  <h3>フィルターの機種</h3>
+  <input type="text" name="filter">
+  <h3>照明器具の機種</h3>
+  <input type="text" name="light">
+  <h3>水換え頻度</h3>
+  <input type="text" name="water_change">
+  <h3>生態の数</h3>
+  <input type="text" name="number_of_fish">
+  <h3>二酸化炭素添加量</h3>
+  <input type="text" name="co2">
+  <h3>そのほかのメモ</h3>
+  <textarea name="memo" cols="30" rows="10"></textarea>
+  <input type="submit" value="投稿">
+<% end %>

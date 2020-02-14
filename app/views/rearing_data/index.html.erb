@@ -1,2 +1,17 @@
-<h1>RearingData#index</h1>
-<p>Find me in app/views/rearing_data/index.html.erb</p>
+<h1>飼育環境一覧</h1>
+<div class="post-item">
+  <%= link_to("飼育環境登録", "/rearing_data/new") %>
+  <% @data.each do |datum| %>
+  <div class="posts-index-item">
+    <%= datum.fish_tank_name %><br>
+    <%= datum.fish_tank_size %><br>
+    <%= datum.filter %><br>
+    <%= datum.light %><br>
+    <%= datum.water_change %><br>
+    <%= datum.number_of_fish %><br>
+    <%= datum.co2 %><br>
+    <%= datum.memo %><br>
+    <%= datum.updated_at.to_s.slice(0..10) %>
+  <% end %>
+  </div>
+</div>

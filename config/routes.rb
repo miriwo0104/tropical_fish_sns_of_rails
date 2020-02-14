@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'rearing_data/index'
   get 'posts/index'
   get 'users/new'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
@@ -35,6 +34,10 @@ Rails.application.routes.draw do
   post "/posts/:id/edit" => "posts#update"
   post "/posts/new" => "posts#create"
   post "posts/:id/destroy" => "posts#destroy"
-
+  
   get "/posts/:id" => "posts#show"
+
+  get "rearing_data/:id/index" => "rearing_data#index"
+  get "rearing_data/new" => "rearing_data#new"
+  post "rearing_data/new" => "rearing_data#create"
 end
