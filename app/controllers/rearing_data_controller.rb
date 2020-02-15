@@ -60,6 +60,8 @@ class RearingDataController < ApplicationController
   end
 
   def destroy
-
+    @datum = Datum.find_by(id: params[:id])
+    @datum.destroy
+    redirect_to("/rearing_data/index")
   end
 end

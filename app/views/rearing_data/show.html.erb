@@ -8,4 +8,4 @@
     <%= @datum.memo %><br>
     <%= @datum.updated_at.to_s.slice(0..10) %><br>
     <%= link_to("編集", "/rearing_data/#{@datum.id}/edit") %><br>
-    <%= link_to("削除", "/rearing_data/#{@datum.id}/destroy") %>
+    <%= link_to("削除", "/rearing_data/#{@datum.id}/destroy", {method: "post"}) %>
