@@ -71,6 +71,7 @@ def create
   def destroy
     @post = Post.find_by(id: params[:id])
     @post.destroy
+    flash[:notice] = "Post deleted"
     redirect_to("/posts/index")
   end
 end
