@@ -38,11 +38,11 @@ class UsersController < ApplicationController
     @user = User.new(name: params[:name], email: @user_address.address, password_digest: params[:password], image_name: "default_user.jpg")
     
     if @user.save
-      # flash[:notice] = "メールアドレス登録完了"
+      flash[:notice] = "メールアドレス登録完了"
       session[:user_id] = @user.id
       redirect_to("/posts/index")
     else
-      # flash[:notice] = "メールアドレス登録失敗"
+      flash[:notice] = "メールアドレス登録失敗"
       #登録失敗時にパスワード以外の入力値をそのままに新規登録画面を再表示
       render ("users/new")
     end
@@ -51,9 +51,11 @@ class UsersController < ApplicationController
   def login
     @user = User.find_by(email: params[:email], password_digest: params[:password])
     if @user
+      flash[:notice] = "ログインしました"
       session[:user_id] = @user.id
       redirect_to("/users/#{@user.id}")
     else
+      flash[:notice] = "ログインに失敗しました"
       @error_message = "メールアドレスかパスワードが間違っています。"
       @email = params[:email]
       render("users/login_form")
@@ -67,6 +69,7 @@ class UsersController < ApplicationController
   def logout
     session.delete(:user_id)
     session[:user_id] = nil
+    flash[:notice] = "ログインアウトしました"
     redirect_to("/signin")
   end
   
@@ -124,10 +127,10 @@ class UsersController < ApplicationController
     end
 
     if @user.save
-      # flash[:notice] = "更新完了"
+      flash[:notice] = "更新完了"
       redirect_to("/users/#{@user.id}")
     else
-      # flash[:notice] = "更新失敗"
+      flash[:notice] = "更新失敗"
       render("users/edit")
     end
   end
