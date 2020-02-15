@@ -11,7 +11,8 @@
     <%= datum.number_of_fish %><br>
     <%= datum.co2 %><br>
     <%= datum.memo %><br>
-    <%= datum.updated_at.to_s.slice(0..10) %>
+    <%= datum.updated_at.to_s.slice(0..10) %><br>
+    <%= link_to("詳細", "/rearing_data/#{datum.id}") %><br>
   <% end %>
   </div>
 </div>

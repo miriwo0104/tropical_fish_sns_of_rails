@@ -28,4 +28,38 @@ class RearingDataController < ApplicationController
       render ("/rearing_data/new")
     end
   end
+
+  def show
+    @datum = Datum.find_by(id: params[:id])
+  end
+  
+  def edit
+    @datum = Datum.find_by(id: params[:id])
+  end
+
+  def update
+    @datum = Datum.find_by(id: params[:id])
+    @datum.fish_tank_name = params[:fish_tank_name]
+    @datum.fish_tank_size = params[:fish_tank_size]
+    @datum.filter = params[:filter]
+    @datum.light = params[:light]
+    @datum.water_change = params[:water_change]
+    @datum.number_of_fish = params[:number_of_fish]
+    @datum.co2 = params[:co2]
+    @datum.memo = params[:memo]
+
+    if @datum.save
+      #保存できた
+      #タイムラインにリダイレクト
+      redirect_to("/rearing_data/#{@datum.id}")
+    else
+      #保存できなかった
+      #投稿ページにrender、一度入力した内容は再表示するため
+      render ("/rearing_data/#{@datum.id}/edit")
+    end
+  end
+
+  def destroy
+
+  end
 end

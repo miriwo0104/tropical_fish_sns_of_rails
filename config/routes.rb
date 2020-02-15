@@ -40,4 +40,8 @@ Rails.application.routes.draw do
   get "rearing_data/:id/index" => "rearing_data#index"
   get "rearing_data/new" => "rearing_data#new"
   post "rearing_data/new" => "rearing_data#create"
+  get "rearing_data/:id/edit" => "rearing_data#edit"
+  post "rearing_data/:id/edit" => "rearing_data#update"
+  post "rearing_data/:id/destroy" => "rearing_data#destroy"
+  get "rearing_data/:id" => "rearing_data#show"
 end

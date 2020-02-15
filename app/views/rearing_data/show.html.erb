@@ -1,0 +1,11 @@
+    <%= @datum.fish_tank_name %><br>
+    <%= @datum.fish_tank_size %><br>
+    <%= @datum.filter %><br>
+    <%= @datum.light %><br>
+    <%= @datum.water_change %><br>
+    <%= @datum.number_of_fish %><br>
+    <%= @datum.co2 %><br>
+    <%= @datum.memo %><br>
+    <%= @datum.updated_at.to_s.slice(0..10) %><br>
+    <%= link_to("編集", "/rearing_data/#{@datum.id}/edit") %><br>
+    <%= link_to("削除", "/rearing_data/#{@datum.id}/destroy") %>
