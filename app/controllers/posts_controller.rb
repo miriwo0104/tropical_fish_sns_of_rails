@@ -60,10 +60,10 @@ def create
     end
 
     if @post.save
-      # flash[:notice] = "更新完了"
+      flash[:notice] = "更新完了"
       redirect_to("/posts/#{@post.id}")
     else
-      # flash[:notice] = "更新失敗"
+      flash[:notice] = "更新失敗"
       render("/posts/#{@post.id}/edit")
     end
   end
@@ -71,6 +71,7 @@ def create
   def destroy
     @post = Post.find_by(id: params[:id])
     @post.destroy
+    flash[:notice] = "投稿を削除しました"
     redirect_to("/posts/index")
   end
 end
