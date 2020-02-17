@@ -61,3 +61,5 @@ gem 'bootstrap'
 gem 'bcrypt'
 
 gem 'carrierwave', '~> 1.3', '>= 1.3.1'
+
+gem "simple_calendar", "~> 2.0"
