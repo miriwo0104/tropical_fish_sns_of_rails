@@ -30,6 +30,8 @@ def create
 
     #保存可否分岐
     if @post.save
+      @post.start_time = @post.updated_at.to_s.slice(0..18)
+      @post.save
       #保存できた
       #タイムラインにリダイレクト
       redirect_to("/posts/index")
@@ -60,6 +62,8 @@ def create
     end
 
     if @post.save
+      @post.start_time = @post.updated_at.to_s.slice(0..18)
+      @post.save
       flash[:notice] = "更新完了"
       redirect_to("/posts/#{@post.id}")
     else

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_14_062928) do
+ActiveRecord::Schema.define(version: 2020_02_18_115655) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "random_id"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2020_02_14_062928) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "user_id"
     t.string "fish_tank_name"
+    t.string "fish_tank_number"
   end
 
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -40,6 +41,7 @@ ActiveRecord::Schema.define(version: 2020_02_14_062928) do
     t.string "link"
     t.string "img"
     t.string "user_id"
+    t.datetime "start_time"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
