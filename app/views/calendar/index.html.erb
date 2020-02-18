@@ -1,9 +1,9 @@
 <%= month_calendar events: @posts do |date, posts| %>
-  <%= date.day %>
+  <%= link_to("#{date.day}", "/calendar/#{@current_user.id}/#{date}/posts") %>
 
   <% posts.each do |post| %>
     <div>
-      <%= link_to("#{post.content}", "/posts/#{post.id}") %>
+      <%= link_to("#{post.content.slice(0..15)}...", "/posts/#{post.id}") %>
     </div>
   <% end %>
 <% end %>

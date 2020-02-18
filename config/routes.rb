@@ -40,6 +40,7 @@ Rails.application.routes.draw do
   get "rearing_data/:id/index" => "rearing_data#index"
   get "rearing_data/new" => "rearing_data#new"
   post "rearing_data/new" => "rearing_data#create"
-
+  
   get "/calendar/:id/index" => "calendar#index"
+  get "/calendar/:id/:date/posts" => "calendar#date_index"
 end

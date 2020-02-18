@@ -1,0 +1,15 @@
+<h1><%= @date.to_s %>の投稿</h1>
+<% @posts.each do |post| %>
+  <% if @date.to_s == post.start_time.to_s.slice(0..9) %>
+    <% if post.img %>
+      <img src="<%= "/tweet_images/#{post.img}" %>" >
+      <br>
+    <% end %>
+    <!-- 投稿のユーザIDと現在ログイン中のユーザIDが一致していれば詳細ボタンを表示する ,to_sで値のデータを文字列として扱う -->
+      <%= link_to("詳細", "/posts/#{post.id}") %>
+    <br>
+    <%= post.content %><br>
+    <%= post.link %><br>
+    <%= post.updated_at.to_s.slice(0..9) %>
+  <% end %>
+<% end %>
