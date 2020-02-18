@@ -7,13 +7,11 @@
     <% end %>
     <br>
     <!-- 投稿のユーザIDと現在ログイン中のユーザIDが一致していれば詳細ボタンを表示する ,to_sで値のデータを文字列として扱う -->
-    <% if post.user_id.to_s == @user.id.to_s %>
       <%= link_to("詳細", "/posts/#{post.id}") %>
-    <% end %>
     <br>
     <%= post.content %><br>
     <%= post.link %><br>
-    <%= post.updated_at.to_s.slice(0..10) %>
+    <%= post.updated_at.to_s.slice(0..9) %>
   <% end %>
   </div>
 </div>

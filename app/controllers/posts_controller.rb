@@ -7,6 +7,7 @@ end
 
 def show
   @post = Post.find_by(id: params[:id])
+  @user = User.find(session[:user_id])
 end
 
 def new
