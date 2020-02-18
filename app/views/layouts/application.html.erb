@@ -24,7 +24,7 @@
 		          	<li class="navbar-item"><%= link_to("投稿", "/posts/new", {class: "nav-link"}) %></li>
 		          	<li class="navbar-item"><%= link_to("ログアウト", "/logout", {class: "nav-link"}) %></li>
 		          	<li class="navbar-item"><%= link_to("飼育環境", "/rearing_data/#{@current_user.id}/index", {class: "nav-link"}) %></li>
-		          	<li class="navbar-item"><%= link_to("カレンダー", "#{@current_user.id}/calendar", {class: "nav-link"}) %></li>
+		          	<li class="navbar-item"><%= link_to("カレンダー", "/calendar/#{@current_user.id}/index", {class: "nav-link"}) %></li>
                 <li class="navbar-item"><%= link_to("#{@current_user.name}", "/users/#{@current_user.id}", {class: "nav-link"}) %></li>
               <% else %>
 		          	<li class="navbar-item"><%= link_to("Home", "/", {class: "nav-link"}) %></li>
